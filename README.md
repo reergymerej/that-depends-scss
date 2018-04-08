@@ -8,7 +8,9 @@ Reads in JS, returns the imported/required file paths.
 
 ```js
 // foo.scss
-@import 'blah'
+@import 'z';
+@import 'a';
+@import './a';
 ```
 
 ```js

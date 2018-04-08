@@ -1,15 +1,5 @@
 const findImports = (input) => {
-  const regex = (/from\s+['"](.+)['"]/g)
-  const allMatches = []
-  let match
-  while (match = regex.exec(input)) {
-    allMatches.push(match[1])
-  }
-  return allMatches
-}
-
-const findRequires = (input) => {
-  const regex = (/require\(['"](.+)['"]\)/g)
+  const regex = (/@import\s+['"](.+)['"]/g)
   const allMatches = []
   let match
   while (match = regex.exec(input)) {
@@ -21,7 +11,6 @@ const findRequires = (input) => {
 module.exports = (input) => {
   const allMatches = [
     ...findImports(input),
-    ...findRequires(input),
   ]
   return allMatches.sort()
 }
